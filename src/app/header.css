@@ -1,0 +1,89 @@
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+/* --- Header settings for all pages --- */
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+
+header {
+  padding: 0.5em;
+  padding-left: 0.75em;
+
+  margin-right: 0.5em;
+
+  height: 100vh;
+  width: 7.5em;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-glass-rgb));
+}
+header nav a {
+  position: relative;
+}
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: -0.5em;
+  top: 0;
+  background-color: rgb(var(--foreground-rgb));
+
+  height: 100%;
+  width: 0.15em;
+
+  transition: all 450ms;
+}
+header nav a:hover::after {
+  height: 0.15em;
+  top: 100%;
+}
+header nav a::before {
+  content: "";
+  position: absolute;
+  left: -0.5em;
+  top: 100%;
+  background-color: rgb(var(--foreground-rgb));
+
+  height: 0.15em;
+  width: 0%;
+
+  transition: all 250ms;
+}
+header nav a:hover::before {
+  width: 100%;
+
+  top: 100%;
+}
+
+.user-signed-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.user-signed-in a {
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+
+.user-signed-in a:hover {
+  transition: all 450ms;
+
+  color: rgb(var(--hover-link));
+  border-bottom: 1px solid rgb(var(--hover-link));
+}
+
+/* This is the specific Clerk user button avatar */
+.cl-avatarBox {
+  width: 5em;
+  height: 5em;
+  border-radius: 10%;
+  box-shadow: 0 0 5px grey;
+}
+
+header nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}

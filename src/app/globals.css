@@ -4,8 +4,13 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  /* --background-start-rgb: 214, 219, 220; */
+  --background-start-rgb: 252, 152, 59;
   --background-end-rgb: 255, 255, 255;
+
+  --background-glass-rgb: 255, 255, 255, 0.35;
+  --hover-link: 123, 125, 255;
+  color: rgb(123, 125, 255);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +18,8 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+
+    --background-glass-rgb: 255, 255, 255, 0.25;
   }
 }
 
@@ -24,10 +31,38 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  display: flex;
+  flex-direction: row;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+
+input {
+  color: black;
+}
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+/* --- User Profile Page --- */
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+
+/* The div which the user avatar photo is in. This is needed for us to resize it */
+.user-avatar {
+  width: 5em;
+  height: 5em;
+}
+
+/* The actual user avatar image itself */
+.user-avatar-image {
+  border-radius: 10%;
+  border: solid 3px rgba(255, 255, 255, 0.5);
 }

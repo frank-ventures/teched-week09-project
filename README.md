@@ -12,6 +12,8 @@ I chose to use Supabase for database hosting, with the site hosted on Vercel.
 
 I kept track of my ideas, planning and progress here: [Planning](https://frankjs.notion.site/Day-Thirty-Nine-Project-24d3bd4839434c17bba360ad24613769?pvs=4)
 
+I call it, **The Void**, because when we post online in places like this, it's kind of where we are shouting into.
+
 ### Requirements & Deliverables
 
 - Use Clerk.com to set up user signup and login.

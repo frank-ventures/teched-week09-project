@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "./header.css";
 import {
   ClerkProvider,
   SignInButton,
@@ -8,7 +9,8 @@ import {
   UserButton
 } from "@clerk/nextjs";
 import { db } from "@/lib/db";
-import { auth } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,17 +26,19 @@ export default async function RootLayout({ children }) {
 
   // I'm going to check if the userId is not null:
   if (userId) {
+    const thisUser = await currentUser();
+
     console.log("there is a user id and it is ", userId);
     // Do they exist on my database or are they new?:
     const profiles = await db.query(
       `SELECT * FROM wknine_profiles WHERE clerk_id = '${userId}'`
     );
-    console.log(profiles);
     // If they're new, add them to my database:
     if (profiles.rowCount === 0) {
-      await db.query(`INSERT INTO wknine_profiles (clerk_id) VALUES ($1)`, [
-        userId
-      ]);
+      await db.query(
+        `INSERT INTO wknine_profiles (clerk_id, username, bio) VALUES ($1, $2, $3)`,
+        [userId, thisUser.username, `I am ${thisUser.firstName}`]
+      );
     }
   } else {
     console.log("there is not a user id. Sadness");
@@ -48,14 +52,19 @@ export default async function RootLayout({ children }) {
             <SignedOut>
               <SignInButton />
             </SignedOut>
+
             <SignedIn>
-              <UserButton />
+              <div className="user-signed-in">
+                <UserButton />
+                <Link href="/profile">Your Profile</Link>
+              </div>
             </SignedIn>
+
+            <nav>
+              <Link href="/">Home Feed</Link>
+            </nav>
           </header>
-          <main>
-            <p>You are signed in and your user id from auth is {userId}</p>
-            {children}
-          </main>
+          <main>{children}</main>
         </body>
       </html>
     </ClerkProvider>

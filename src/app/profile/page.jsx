@@ -5,6 +5,7 @@ import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import SubmitFormButton from "./SubmitFormButton";
+import PostsDisplay from "@/components/PostsDisplay";
 
 export default async function ProfilePage() {
   const { userId } = auth();
@@ -76,6 +77,8 @@ export default async function ProfilePage() {
           />
           <SubmitFormButton />
         </form>
+        <h2>Posts you&apos;ve made:</h2>
+        <PostsDisplay userId={userId} />
       </SignedIn>
       <SignedOut>
         <h2>You are not signed in. For shame!</h2>

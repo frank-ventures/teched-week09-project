@@ -5,22 +5,22 @@ import Link from "next/link";
 export default async function OtherUsersProfiles() {
   // get all users from the database
 
-  const allUsers = await db.query(`SELECT * FROM wknine_profiles`);
+  //   const allUsers = await db.query(`SELECT * FROM wknine_profiles`);
 
-  console.log(allUsers.rows);
+  //   console.log(allUsers.rows);
 
   // show them on the page
 
   return (
     <>
       <h2>View other users profiles</h2>
-      {allUsers.rows.map((user) => {
+      {/* {allUsers.rows.map((user) => {
         return (
           <>
             <Link href={`/others/${user.id}`}>{user.username}</Link>
           </>
         );
-      })}
+      })} */}
     </>
   );
 }

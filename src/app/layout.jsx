@@ -63,9 +63,9 @@ export default async function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <header>
-            <NavBar />
-          </header>
+          {/* <header> */}
+          <NavBar />
+          {/* </header> */}
           <main>{children}</main>
         </body>
       </html>

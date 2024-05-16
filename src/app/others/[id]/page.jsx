@@ -1,6 +1,7 @@
 import PostsDisplay from "@/components/PostsDisplay";
 import { db } from "@/lib/db";
 import Image from "next/image";
+import "./otherUser.css";
 
 // This page lets the user see and edit their own profile page.
 export default async function UserProfileDisplay({ params }) {
@@ -27,7 +28,7 @@ export default async function UserProfileDisplay({ params }) {
   const reversedPosts = postsResult.rows.reverse();
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="other-users-profile flex flex-col gap-2">
       <section className="user-title-bar flex gap-4 items-end mt-2">
         <div className="user-avatar">
           <Image

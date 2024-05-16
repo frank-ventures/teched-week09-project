@@ -1,9 +1,11 @@
 // Functionality imports
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { SignInButton, SignedIn, SignedOut, UserProfile } from "@clerk/nextjs";
-
 import Image from "next/image";
 import { db } from "@/lib/db";
+
+// Style
+import "./profile.css";
 // Components
 import PostsDisplay from "@/components/PostsDisplay";
 import UpdateUserProfileForm from "@/components/UpdateUserProfileForm";
@@ -21,7 +23,7 @@ export default async function ProfilePage() {
 
   // Main jsx return:
   return (
-    <div className="flex flex-col gap-2">
+    <div className="user-profile-page flex flex-col gap-2">
       <SignedIn>
         <section className="user-title-bar flex gap-4 items-end mt-2">
           <div className="user-avatar">

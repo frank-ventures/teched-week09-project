@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function NavBar() {
   // For hamburger menu
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
     setIsOpen(!isOpen);
     console.log(isOpen);

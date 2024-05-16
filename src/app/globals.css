@@ -9,8 +9,9 @@
   --background-end-rgb: 255, 255, 255;
 
   --background-glass-rgb: 255, 255, 255, 0.35;
-  --hover-link: 123, 125, 255;
-  color: rgb(123, 125, 255);
+  --hover-link: 168, 85, 247;
+  --clicked-link: 93, 8, 173;
+  color: rgb(93, 8, 173);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,6 +36,10 @@ body {
   flex-direction: row;
 }
 
+main {
+  width: 100%;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -48,8 +53,59 @@ h2 {
   font-size: 2rem;
 }
 
-input {
+input,
+textarea {
   color: black;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+/* Making our main button fancy */
+.submit-form-button {
+  padding: 0.25rem;
+  height: 2.5rem;
+  width: 10rem;
+  background-color: orange;
+
+  border-bottom: 3px solid rgb(255, 115, 0);
+  border-right: 1px solid rgb(255, 115, 0);
+
+  border-radius: 0.25rem;
+}
+.submit-form-button:hover {
+  background-color: rgb(255, 175, 0);
+  box-shadow: 0 0 3px rgb(var(--foreground-rgb));
+}
+.submit-form-button:active {
+  background-color: rgb(var(--hover-link));
+  border-bottom: 1px solid rgb(var(--clicked-link));
+  border-right: 3px solid rgb(var(--clicked-link));
+  box-shadow: none;
+}
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+
+.user-form {
+  width: 80%;
+}
+
+.user-details-text {
+  padding-right: 1.5rem;
+  background-color: rgba(128, 128, 128, 0.2);
+  border-radius: 0.25rem;
+
+  position: relative;
+}
+
+.user-details-text::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0.2rem;
+  right: 0;
+  bottom: 0;
+  background-color: orange;
 }
 /* --- --- --- --- --- --- --- --- --- --- --- ---  */
 /* --- User Profile Page --- */

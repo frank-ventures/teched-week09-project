@@ -7,11 +7,15 @@ export default async function PostsDisplay(params) {
   );
   // Wrangling the data. 'thisUserOnDatabase.id' is what we need:
   const thisUserOnDatabase = databasereturn.rows[0];
-  console.log("this user on db on posts display is ", thisUserOnDatabase);
+  console.log(
+    "PostsDisplay.jsx: This user on our db is - ",
+    thisUserOnDatabase
+  );
 
   // Probably naughty
   let postsResult;
 
+  // Lets us show only the users posts, on their profile page:
   if (thisUserOnDatabase) {
     postsResult = await db.query(`
     SELECT
@@ -21,9 +25,8 @@ export default async function PostsDisplay(params) {
     JOIN wknine_profiles ON wknine_posts.profile_id = wknine_profiles.id
     WHERE wknine_posts.profile_id = ${thisUserOnDatabase.id}
     `);
-
-    console.log(postsResult.rows);
   } else {
+    // Otherwise, get all the posts:
     postsResult = await db.query(`
     SELECT
     wknine_posts.content, wknine_posts.id,
@@ -31,12 +34,9 @@ export default async function PostsDisplay(params) {
   FROM wknine_posts
     JOIN wknine_profiles ON wknine_posts.profile_id = wknine_profiles.id
     `);
-
-    console.log(postsResult.rows);
   }
-  // get all posts
 
-  //map them to the page
+  //Map the results to the page
   return (
     <>
       {postsResult.rows.map((post) => {

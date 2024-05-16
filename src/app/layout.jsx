@@ -17,6 +17,7 @@ import NavBar from "@/components/NavBar";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "./header.css";
+import { revalidatePath } from "next/cache";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,8 +39,18 @@ export default async function RootLayout({ children }) {
   if (userId) {
     const thisUser = await currentUser();
 
-    console.log("Home Layout.jsx: There is a user id of - ", userId);
+    if (thisUser) {
+      await db.query(
+        `
+          UPDATE wknine_profiles
+          SET imageurl = $1
+            WHERE clerk_id = '${userId}';`,
+        [thisUser.imageUrl]
+      );
+      revalidatePath("/");
+    }
     // Do they exist on my database or are they new?:
+
     profiles = await db.query(
       `SELECT * FROM wknine_profiles WHERE clerk_id = '${userId}'`
     );

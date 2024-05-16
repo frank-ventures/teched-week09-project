@@ -11,6 +11,7 @@
   --background-glass-rgb: 255, 255, 255, 0.35;
   --hover-link: 168, 85, 247;
   --clicked-link: 93, 8, 173;
+  --form-purple: 168, 85, 247;
   color: rgb(93, 8, 173);
 }
 
@@ -38,6 +39,11 @@ body {
 
 main {
   width: 100%;
+  margin-right: 0.5em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 @layer utilities {
@@ -51,6 +57,9 @@ h1 {
 }
 h2 {
   font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
 }
 
 input,
@@ -86,8 +95,24 @@ textarea {
 }
 /* --- --- --- --- --- --- --- --- --- --- --- ---  */
 
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+/* Individual Posts Image */
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+.post-image img {
+  width: 2.5rem;
+
+  height: auto;
+
+  border-radius: 5em;
+  opacity: 75%;
+
+  border: 2px solid hsla(0, 0%, 0%, 0.2);
+}
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+
 .user-form {
   width: 80%;
+  border: 2px solid rgb(var(--clicked-link));
 }
 
 .user-details-text {
@@ -121,4 +146,18 @@ textarea {
 .user-avatar-image {
   border-radius: 10%;
   border: solid 3px rgba(255, 255, 255, 0.5);
+}
+
+/* The Clerk Update Box */
+.cl-navbar {
+  display: none;
+}
+
+.cl-cardBox {
+  height: 100%;
+  color: white;
+}
+
+.cl-scrollBox {
+  background-color: rgb(var(--form-purple));
 }

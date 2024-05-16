@@ -6,6 +6,8 @@ import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 export default function NavBar() {
   const pathname = usePathname();
 
+  const isSubRoute = (route) => pathname.startsWith(route);
+
   return (
     <>
       <SignedOut>
@@ -40,6 +42,14 @@ export default function NavBar() {
           }`}
         >
           About
+        </Link>
+        <Link
+          href="/others"
+          className={`link fancy-link ${
+            isSubRoute("/others") ? "active-link" : ""
+          }`}
+        >
+          Other Users
         </Link>
       </nav>
     </>

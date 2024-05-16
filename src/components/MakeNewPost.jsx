@@ -36,7 +36,6 @@ export default async function MakeNewPost() {
     );
 
     revalidatePath("/");
-    redirect("/");
   }
 
   return (

@@ -13,7 +13,9 @@ export default function Home() {
         </p>
       </div>
       <SignedIn>
-        <p className="ml-3">Cast your words into the void?</p>
+        <p className="ml-3">
+          Cast your words into the void? We&apos;ll listen.
+        </p>
         <MakeNewPost />
       </SignedIn>
       <PostsDisplay />

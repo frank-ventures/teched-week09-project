@@ -68,6 +68,12 @@ I call it, **The Void**, because when we post online in places like this, it's k
 
   I adore Supabases' SQL Editor and used it again this week to construct my database.
 
+**Components**
+
+Practice in prior weeks has given me a good understanding of how to make components, when are where to use them, and also I've just found them a joy.
+
+I feel like I have got a good grasp on making my apps/websites modular which helps in keeping code clean and readable.
+
 - **Functionality**
 
 - **User Interface and Design**

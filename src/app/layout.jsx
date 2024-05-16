@@ -1,6 +1,5 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
-import "./header.css";
+// --- --- --- ---
+// Functionality import
 import {
   ClerkProvider,
   SignInButton,
@@ -10,27 +9,49 @@ import {
 } from "@clerk/nextjs";
 import { db } from "@/lib/db";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import Link from "next/link";
+// --- --- --- ---
+// Components import
+import NavBar from "@/components/NavBar";
+// --- --- --- ---
+// Styling import
+import { Inter } from "next/font/google";
+import "./globals.css";
+import "./header.css";
+import { revalidatePath } from "next/cache";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// --- --- --- ---
+// Metadata
 export const metadata = {
   title: "The Void",
   description: "Not really a social network. Made by Frank."
 };
 
+// --- --- --- ---
+// Main Website Layout
 export default async function RootLayout({ children }) {
   // Get the users Clerk ID:
   const { userId } = auth();
-  console.log(userId);
 
+  let profiles;
   // I'm going to check if the userId is not null:
   if (userId) {
     const thisUser = await currentUser();
 
-    console.log("there is a user id and it is ", userId);
+    if (thisUser) {
+      await db.query(
+        `
+          UPDATE wknine_profiles
+          SET imageurl = $1
+            WHERE clerk_id = '${userId}';`,
+        [thisUser.imageUrl]
+      );
+      revalidatePath("/");
+    }
     // Do they exist on my database or are they new?:
-    const profiles = await db.query(
+
+    profiles = await db.query(
       `SELECT * FROM wknine_profiles WHERE clerk_id = '${userId}'`
     );
     // If they're new, add them to my database:
@@ -49,20 +70,7 @@ export default async function RootLayout({ children }) {
       <html lang="en">
         <body className={inter.className}>
           <header>
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-
-            <SignedIn>
-              <div className="user-signed-in">
-                <UserButton />
-                <Link href="/profile">Your Profile</Link>
-              </div>
-            </SignedIn>
-
-            <nav>
-              <Link href="/">Home Feed</Link>
-            </nav>
+            <NavBar />
           </header>
           <main>{children}</main>
         </body>

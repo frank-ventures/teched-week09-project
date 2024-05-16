@@ -12,7 +12,7 @@ export default async function OtherUsersProfiles() {
   // show them on the page
 
   return (
-    <div className="other-users-container mt-2 flex flex-col gap-4 items-center">
+    <div className="other-users-container w-full mt-2 flex flex-col gap-4 items-center">
       <h2 className="mb-2">View other users profiles</h2>
       {allUsers.rows.map((user) => {
         return (

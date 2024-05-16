@@ -1,3 +1,6 @@
+.user-profile-page {
+  width: inherit;
+}
 @media (max-width: 600px) {
   .user-profile-page {
     align-items: center;

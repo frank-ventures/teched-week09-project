@@ -3,6 +3,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 import SubmitFormButton from "./SubmitFormButton";
+import ToastNote from "./RadixToast";
 
 export default async function MakeNewPost() {
   const { userId } = auth();
@@ -52,6 +53,7 @@ export default async function MakeNewPost() {
           placeholder="Go on, you can share. It's safe.."
         />
         <SubmitFormButton />
+        <ToastNote />
       </form>
     </>
   );

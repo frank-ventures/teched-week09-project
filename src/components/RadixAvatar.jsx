@@ -2,6 +2,9 @@
 import React from "react";
 import * as Avatar from "@radix-ui/react-avatar";
 import "./radixavatarstyles.css";
+import { square } from "ldrs";
+
+square.register();
 
 const RadixAvatar = ({ src, alt }) => (
   <div style={{ display: "flex", gap: 20 }}>
@@ -11,8 +14,15 @@ const RadixAvatar = ({ src, alt }) => (
         src={src}
         alt={`Avatar of ${alt}`}
       />
-      <Avatar.Fallback className="AvatarFallback" delayMs={600}>
-        {alt}
+      <Avatar.Fallback className="AvatarFallback" delayMs={1000}>
+        <l-square
+          size="35"
+          stroke="5"
+          stroke-length="0.25"
+          bg-opacity="0.1"
+          speed="1.2"
+          color="white"
+        ></l-square>
       </Avatar.Fallback>
     </Avatar.Root>
   </div>

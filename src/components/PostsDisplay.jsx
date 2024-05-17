@@ -73,7 +73,10 @@ export default async function PostsDisplay(params) {
                 width={100}
                 height={100}
               /> */}
-              <RadixAvatar src={post.imageurl} alt={post.username} />
+              <RadixAvatar
+                src={post.imageurl ? post.imageurl : "/defaultImage.webp"}
+                alt={post.username}
+              />
             </div>
             <div className="flex flex-col">
               <Link

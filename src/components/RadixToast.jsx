@@ -3,6 +3,8 @@ import * as React from "react";
 import * as Toast from "@radix-ui/react-toast";
 import "./radixtoast.css";
 
+import { useFormStatus } from "react-dom";
+
 const ToastNote = () => {
   const [open, setOpen] = React.useState(false);
   const eventDateRef = React.useRef(new Date());
@@ -12,10 +14,14 @@ const ToastNote = () => {
     return () => clearTimeout(timerRef.current);
   }, []);
 
+  const formStatus = useFormStatus();
+
   return (
     <Toast.Provider swipeDirection="right">
       <button
-        className="Button large violet"
+        className="submit-form-button"
+        type="submit"
+        disabled={formStatus.pending}
         onClick={() => {
           setOpen(false);
           window.clearTimeout(timerRef.current);
@@ -25,11 +31,13 @@ const ToastNote = () => {
           }, 100);
         }}
       >
-        Add to calendar
+        {formStatus.pending ? "Sending..." : "Go!"}
       </button>
 
       <Toast.Root className="ToastRoot" open={open} onOpenChange={setOpen}>
-        <Toast.Title className="ToastTitle">Scheduled: Catch up</Toast.Title>
+        <Toast.Title className="ToastTitle">
+          Post sent into the void...
+        </Toast.Title>
         <Toast.Description asChild>
           <time
             className="ToastDescription"
@@ -43,7 +51,7 @@ const ToastNote = () => {
           asChild
           altText="Goto schedule to undo"
         >
-          <button className="Button small green">Undo</button>
+          {/* <button className="Button small green">Undo</button> */}
         </Toast.Action>
       </Toast.Root>
       <Toast.Viewport className="ToastViewport" />

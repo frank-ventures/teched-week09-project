@@ -50,7 +50,7 @@ export default function NavBar() {
       >
         {" "}
         <SignedOut>
-          <SignInButton />
+          <SignInButton className="fancy-link" />
         </SignedOut>
         <SignedIn>
           <div className="user-signed-in">
@@ -90,7 +90,7 @@ export default function NavBar() {
               isSubRoute("/profiles") ? "active-link" : ""
             }`}
           >
-            Other Users
+            All Users
           </Link>
         </nav>
       </header>

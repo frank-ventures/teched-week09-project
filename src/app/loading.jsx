@@ -5,7 +5,7 @@ export default function HomeLoading() {
   square.register();
 
   return (
-    <div className="flex gap-4 justify-center items-center">
+    <div className="flex gap-4 justify-center items-center h-screen">
       <l-square
         size="35"
         stroke="5"
@@ -17,5 +17,3 @@ export default function HomeLoading() {
     </div>
   );
 }
-
-// Default values shown

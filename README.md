@@ -2,17 +2,17 @@
 
 ## Project - Build a social network
 
-**Link to project:** [Link]()
+**Link to project:** [Link](https://our-void.vercel.app/)
 
-![image]()
+![image](public/week-09-finished.png)
 
-Continuing with Next.js and adding user authentication with the magic that is Clerk, we build a rudimentary 'social network' this week.
+Continuing with Next.js and adding user authentication with the magic that is Clerk, we built a rudimentary 'social network' this week.
 
 I chose to use Supabase for database hosting, with the site hosted on Vercel.
 
 I kept track of my ideas, planning and progress here: [Planning](https://frankjs.notion.site/Day-Thirty-Nine-Project-24d3bd4839434c17bba360ad24613769?pvs=4)
 
-I call it, **The Void**, because when we post online in places like this, it's kind of where we are shouting into.
+I called it **The Void**, because when we post online in places like this, it's kind of where we are shouting into...
 
 ### Requirements & Deliverables
 
@@ -56,8 +56,12 @@ I call it, **The Void**, because when we post online in places like this, it's k
 
 ### Features!
 
--
-- Radix Avatar component
+- Scrollable user posts.
+- User can sign up and sign in.
+- User can see their profile page, edit their username and bio, and make posts from their page.
+- Users can see other users who have signed up, then browse their profiles.
+- Fancy hyperlinks!
+- Radix components include: Avatar, Toast popup (on new post submission)
 
 ### What went well
 
@@ -65,7 +69,7 @@ I call it, **The Void**, because when we post online in places like this, it's k
 
 - **DrawSQL**
   DrawSQL to the rescue, as in previous weeks. What a great tool!
-  ![my database plan]()
+  ![my database plan](public/week-09-schema.png)
 
   I adore Supabases' SQL Editor and used it again this week to construct my database.
 
@@ -81,18 +85,25 @@ I feel like I have got a good grasp on making my apps/websites modular which hel
 
 ### Sticky points and Difficulties
 
-**New User making their first post get DENIED**
+**New User making their first post gets DENIED**
 talk about alexs bug and then fixing it with a conditional in the image
-**Two**
+
+**CSS**
+started messy, no plan, made up as i went along - BAD! Tidied up and fixed problems with 'main-container' style classes on each page, and also media queries
 
 ### Future Additions
 
+- Users can 'like' others posts.
+- Users can 'follow' other users.
+- Users can add comments on individual posts.
+- Search posts by 'hastags' would be cool.
+
 ### Resources
 
-DrawSQL - [My DrawSQL]()
+DrawSQL - [My DrawSQL](https://drawsql.app/teams/personal-1367/diagrams/09-week-nine-project)
 
-hamburger help https://jacobhocker.medium.com/creating-an-animated-hamburger-menu-in-nextjs-tailwind-css-9e332d428811
+hamburger help - [NextJS Hamburger Menu](https://jacobhocker.medium.com/creating-an-animated-hamburger-menu-in-nextjs-tailwind-css-9e332d428811)
 
-Box Shadow help - [CSS Inner Box Shadow](https://devdevout.com/css/css-inner-shadow)
+Inner Box Shadow help - [CSS Inner Box Shadow](https://devdevout.com/css/css-inner-shadow)
 
-LDRS - Loading Spinners Library _(I figured out you need to make the component "use client")_ - [LDRS Library](https://uiball.com/ldrs/)
+LDRS - Loading Spinners Library _(I also figured out you need to make the component "use client")_ - [LDRS Library](https://uiball.com/ldrs/)

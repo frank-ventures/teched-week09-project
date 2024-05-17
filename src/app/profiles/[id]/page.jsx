@@ -17,7 +17,7 @@ export default async function UserProfileDisplay({ params }) {
   return (
     <>
       {thisUser ? (
-        <div className="other-users-profile flex flex-col gap-2">
+        <div className="other-users-profile flex flex-col gap-2 mt-16">
           <section className="user-title-bar flex gap-4 items-end mt-2">
             <div className="user-avatar">
               <Image
@@ -31,7 +31,7 @@ export default async function UserProfileDisplay({ params }) {
             <h2>{thisUser?.username}&apos;s profile</h2>
           </section>
 
-          <section className="user-details flex flex-col gap-2 p-2 w-4/5 bg-purple-500 bg-opacity-50 rounded ">
+          <section className="user-details flex flex-col gap-2 p-2 w-7/12 bg-purple-500 bg-opacity-50 rounded ">
             <div className="user-name flex gap-4 justify-end">
               <p className="user-details-text w-3/12 text-right">
                 Display Name

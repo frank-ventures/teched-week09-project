@@ -19,4 +19,7 @@
     text-align: end;
     gap: 1rem;
   }
+  .user-details {
+    width: 85%;
+  }
 }

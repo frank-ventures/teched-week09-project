@@ -147,7 +147,7 @@ textarea {
 }
 
 .user-form {
-  width: 80%;
+  width: 50%;
   border: 2px solid rgb(var(--clicked-link));
 }
 
@@ -172,13 +172,8 @@ textarea {
 /* --- User Profile Page --- */
 /* --- --- --- --- --- --- --- --- --- --- --- ---  */
 
-/* The div which the user avatar photo is in. This is needed for us to resize it */
-.user-avatar {
-  width: 5em;
-  height: 5em;
-}
-
 /* The actual user avatar image itself */
+/* I don't think this is in use anymore... */
 .user-avatar-image {
   border-radius: 10%;
   border: solid 3px rgba(255, 255, 255, 0.5);
@@ -201,6 +196,9 @@ textarea {
 @media (max-width: 600px) {
   .posts-container {
     width: 90%;
+  }
+  .user-form {
+    width: 85%;
   }
 
   main {

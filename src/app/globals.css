@@ -8,7 +8,7 @@
   --background-start-rgb: 252, 152, 59;
   --background-end-rgb: 255, 255, 255;
 
-  --background-glass-rgb: 255, 255, 255, 0.35;
+  --background-glass-rgb: 255, 255, 255, 0.95;
   --hover-link: 168, 85, 247;
   --clicked-link: 93, 8, 173;
   --form-purple: 168, 85, 247;
@@ -21,7 +21,7 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 28, 0, 54;
 
-    --background-glass-rgb: 255, 255, 255, 0.25;
+    --background-glass-rgb: 0, 0, 0, 0.9;
   }
 }
 
@@ -40,12 +40,13 @@ body {
     rgb(var(--background-start-rgb));
   display: flex;
   flex-direction: row;
+  height: 100dvh;
 }
 
 main {
-  width: 95%;
+  width: 100%;
   height: 100%;
-  margin-right: 0.5em;
+  /* margin-right: 0.5em; */
   margin-top: 0.5em;
 
   display: flex;

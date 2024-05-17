@@ -32,18 +32,9 @@ export default async function RootLayout({ children }) {
   // I'm going to check if the userId is not null:
   if (userId) {
     const thisUser = await currentUser();
-    console.log(
-      "layout.jsx: This users imageUrl line 35 - ",
-      thisUser.imageUrl
-    );
 
     if (thisUser) {
       if (thisUser.imageUrl === null) {
-        console.log(
-          "layout.jsx: This users imageUrl line 39 - ",
-          thisUser.imageUrl
-        );
-
         await db.query(
           `
             UPDATE wknine_profiles
@@ -52,10 +43,6 @@ export default async function RootLayout({ children }) {
           [
             "https://img.clerk.com/eyJ0eXBlIjoiZGVmYXVsdCIsImlpZCI6Imluc18yZ1V6bkZVd2tGSkpoS3RLbWI3UTI0cWJIaHMiLCJyaWQiOiJ1c2VyXzJnYVU4Y3R2bldQaXpFYWZNTnIwcGQ3d2lUSSJ9"
           ]
-        );
-        console.log(
-          "layout.jsx: This users imageUrl line 50 - ",
-          thisUser.imageUrl
         );
 
         revalidatePath("/");

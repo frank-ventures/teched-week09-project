@@ -54,9 +54,9 @@ export default function NavBar() {
         </SignedOut>
         <SignedIn>
           <div className="user-signed-in">
-            <Shiny>
-              <UserButton />
-            </Shiny>
+            {/* <Shiny> */}
+            <UserButton />
+            {/* </Shiny> */}
             <Link
               href="/profile"
               className={`link fancy-link ${

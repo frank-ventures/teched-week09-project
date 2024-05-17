@@ -21,35 +21,30 @@ export default function AboutPage() {
         <p>
           This app allows you to create an account, post messages onto a feed...{" "}
         </p>
-        <p>
-          Frankies&apos; :
-          <ul className="ml-5">
-            <li>
-              <a
-                className="fancy-link"
-                href="https://www.linkedin.com/in/frankie-shrieves/"
-              >
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a
-                className="fancy-link"
-                href="https://github.com/frank-ventures"
-              >
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a
-                className="fancy-link "
-                href="https://github.com/frank-ventures/teched-week09-project"
-              >
-                GitHub Repo for this project
-              </a>
-            </li>
-          </ul>{" "}
-        </p>
+        <p>Frankies&apos; :</p>
+        <ul className="ml-5">
+          <li>
+            <a
+              className="fancy-link"
+              href="https://www.linkedin.com/in/frankie-shrieves/"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a className="fancy-link" href="https://github.com/frank-ventures">
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
+              className="fancy-link "
+              href="https://github.com/frank-ventures/teched-week09-project"
+            >
+              GitHub Repo for this project
+            </a>
+          </li>
+        </ul>{" "}
       </div>
     </>
   );

@@ -43,7 +43,7 @@ export default async function ProfilePage() {
 
         <section className="user-details flex flex-col gap-2 p-2 w-4/5 bg-purple-500 bg-opacity-50 rounded ">
           <div className="user-name flex gap-4 justify-end">
-            <p className="user-details-text w-3/12 text-right">Display Name</p>
+            <p className="user-details-text w-3/12 text-right ">Display Name</p>
             <p className="w-9/12">{thisUserOnDatabase?.username}</p>
           </div>
 

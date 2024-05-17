@@ -41,7 +41,7 @@ export default async function ProfilePage() {
               </Suspense>
             </Shiny>
           </div>
-          <h2>{thisUser?.username}, You are signed in</h2>
+          <h2>{thisUserOnDatabase?.username}, You are signed in</h2>
         </section>
 
         <section className="user-details flex flex-col gap-2 p-2 w-3/5 bg-purple-500 bg-opacity-50 rounded ">

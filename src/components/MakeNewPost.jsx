@@ -52,7 +52,7 @@ export default async function MakeNewPost() {
           name="userPost"
           placeholder="Go on, you can share. It's safe.."
         />
-        <SubmitFormButton />
+
         <ToastNote />
       </form>
     </>

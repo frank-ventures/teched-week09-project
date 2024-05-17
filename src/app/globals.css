@@ -40,17 +40,10 @@ body {
     rgb(var(--background-start-rgb));
   display: flex;
   flex-direction: row;
-  height: 100vh;
 }
 
 main {
   width: 100%;
-  padding-top: 4em;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
 }
 
 @layer utilities {
@@ -75,6 +68,29 @@ textarea {
   padding: 0.5rem;
   border-radius: 0.25rem;
   margin-bottom: 1rem;
+}
+
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+/* Home Page */
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+
+.home-container {
+  height: 100dvh;
+  width: 100%;
+
+  padding-top: 4em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+/* Other Users Page */
+/* --- --- --- --- --- --- --- --- --- --- --- ---  */
+.other-users-container {
+  height: 100dvh;
 }
 
 /* --- --- --- --- --- --- --- --- --- --- --- ---  */
@@ -119,7 +135,9 @@ textarea {
 
 .posts-container {
   width: 70%;
-  height: 70%;
+  height: 50em;
+  margin-bottom: 2em;
+
   overflow-y: scroll;
   padding: 10px;
 

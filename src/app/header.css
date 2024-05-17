@@ -7,7 +7,7 @@
   width: 2.5rem;
   height: 2rem;
   left: 2rem;
-  top: 2rem;
+  top: 1.5rem;
 
   background-color: rgba(128, 128, 128, 0.75);
   box-shadow: 0 0 5px grey;
@@ -70,6 +70,10 @@ header nav {
 
 .fancy-link {
   position: relative;
+}
+.fancy-link:hover {
+  transition: all 500ms;
+  box-shadow: 2px 4px 1px rgb(var(--foreground-rgb));
 }
 .fancy-link::after {
   content: "";

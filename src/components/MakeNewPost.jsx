@@ -22,7 +22,7 @@ export default async function MakeNewPost() {
     const profiles = await db.query(
       `SELECT * FROM wknine_profiles WHERE clerk_id = '${userId}'`
     );
-    console.log(profiles);
+    console.log("MakeNewPost.jsx: Profiles are - ", profiles.rows);
     const usersDatabaseID = profiles.rows[0].id;
 
     const postContent = formData.get("userPost");

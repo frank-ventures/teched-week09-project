@@ -16,7 +16,6 @@
     flex-direction: row-reverse;
     align-items: center;
     padding: 0.5rem;
-    padding-top: 3rem;
     text-align: end;
     gap: 1rem;
   }

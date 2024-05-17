@@ -1,0 +1,32 @@
+.shiny-wrapper {
+  position: relative;
+}
+
+.shiny-thing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5%;
+  z-index: 5;
+  border-radius: 0.25em;
+  animation: blink 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes blink {
+  0% {
+    top: 0;
+    background-color: rgba(255, 166, 0, 0);
+  }
+  10% {
+    background-color: rgba(240, 240, 240, 0.5);
+  }
+  50% {
+    top: 95%;
+    background-color: rgba(255, 166, 0, 0);
+  }
+  100% {
+    top: 200%;
+  }
+}

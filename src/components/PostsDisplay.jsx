@@ -62,12 +62,12 @@ export default async function PostsDisplay(params) {
       {reversedPosts.map((post) => {
         return (
           <div
-            className="individual-post flex gap-3 items-center mb-3 mt-1 p-2 w-full rounded bg-slate-200 bg-opacity-30 shadow"
+            className="individual-post flex gap-3 items-center mb-3 mt-1 p-2 w-full rounded-lg bg-slate-200 bg-opacity-30 shadow"
             key={post.id + post.username}
           >
             <div className="post-image">
               <Image
-                src={post.imageurl}
+                src={post.imageurl ? post.imageurl : "/defaultImage.webp"}
                 alt={post.title}
                 width={100}
                 height={100}
@@ -75,7 +75,7 @@ export default async function PostsDisplay(params) {
             </div>
             <div className="flex flex-col">
               <Link
-                href={`/others/${post.profile_id}`}
+                href={`/profiles/${post.profile_id}`}
                 className="border-b-2 border-r-2 w-fit ml-2 pr-2 pl-2 border-purple-400 border-opacity-75 mb-1 italic opacity-70 rounded "
               >
                 {post.username}

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useState } from "react";
+import Shiny from "./Shiny";
 
 export default function NavBar() {
   // For hamburger menu
@@ -53,7 +54,9 @@ export default function NavBar() {
         </SignedOut>
         <SignedIn>
           <div className="user-signed-in">
-            <UserButton />
+            <Shiny>
+              <UserButton />
+            </Shiny>
             <Link
               href="/profile"
               className={`link fancy-link ${
@@ -82,9 +85,9 @@ export default function NavBar() {
             About
           </Link>
           <Link
-            href="/others"
+            href="/profiles"
             className={`link fancy-link ${
-              isSubRoute("/others") ? "active-link" : ""
+              isSubRoute("/profiles") ? "active-link" : ""
             }`}
           >
             Other Users

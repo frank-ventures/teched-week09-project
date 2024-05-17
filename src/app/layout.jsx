@@ -32,16 +32,48 @@ export default async function RootLayout({ children }) {
   // I'm going to check if the userId is not null:
   if (userId) {
     const thisUser = await currentUser();
+    console.log(
+      "layout.jsx: This users imageUrl line 35 - ",
+      thisUser.imageUrl
+    );
 
     if (thisUser) {
-      await db.query(
-        `
+      if (thisUser.imageUrl === null) {
+        console.log(
+          "layout.jsx: This users imageUrl line 39 - ",
+          thisUser.imageUrl
+        );
+
+        await db.query(
+          `
+            UPDATE wknine_profiles
+            SET imageurl = $1
+              WHERE clerk_id = '${userId}';`,
+          [
+            "https://img.clerk.com/eyJ0eXBlIjoiZGVmYXVsdCIsImlpZCI6Imluc18yZ1V6bkZVd2tGSkpoS3RLbWI3UTI0cWJIaHMiLCJyaWQiOiJ1c2VyXzJnYVU4Y3R2bldQaXpFYWZNTnIwcGQ3d2lUSSJ9"
+          ]
+        );
+        console.log(
+          "layout.jsx: This users imageUrl line 50 - ",
+          thisUser.imageUrl
+        );
+
+        revalidatePath("/");
+      } else {
+        console.log(
+          "layout.jsx: This users imageUrl  line 54 - ",
+          thisUser.imageUrl
+        );
+
+        await db.query(
+          `
           UPDATE wknine_profiles
           SET imageurl = $1
             WHERE clerk_id = '${userId}';`,
-        [thisUser.imageUrl]
-      );
-      revalidatePath("/");
+          [thisUser.imageUrl]
+        );
+        revalidatePath("/");
+      }
     }
     // Do they exist on my database or are they new?:
 
@@ -54,6 +86,7 @@ export default async function RootLayout({ children }) {
         `INSERT INTO wknine_profiles (clerk_id, username, bio) VALUES ($1, $2, $3)`,
         [userId, thisUser.username, `I am ${thisUser.firstName}`]
       );
+      revalidatePath("/");
     }
   } else {
     console.log("there is not a user id. Sadness");

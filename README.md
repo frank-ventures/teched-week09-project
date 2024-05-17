@@ -91,3 +91,5 @@ I feel like I have got a good grasp on making my apps/websites modular which hel
 DrawSQL - [My DrawSQL]()
 
 hamburger help https://jacobhocker.medium.com/creating-an-animated-hamburger-menu-in-nextjs-tailwind-css-9e332d428811
+
+Box Shadow help - [CSS Inner Box Shadow](https://devdevout.com/css/css-inner-shadow)

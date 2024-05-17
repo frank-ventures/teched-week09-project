@@ -1,6 +1,12 @@
 // Functionality imports
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { SignInButton, SignedIn, SignedOut, UserProfile } from "@clerk/nextjs";
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  UserProfile
+} from "@clerk/nextjs";
 import Image from "next/image";
 import { db } from "@/lib/db";
 
@@ -10,6 +16,7 @@ import "./profile.css";
 import PostsDisplay from "@/components/PostsDisplay";
 import UpdateUserProfileForm from "@/components/UpdateUserProfileForm";
 import MakeNewPost from "@/components/MakeNewPost";
+import Shiny from "@/components/Shiny";
 
 export default async function ProfilePage() {
   // Get user details:
@@ -25,18 +32,13 @@ export default async function ProfilePage() {
   return (
     <div className="user-profile-page flex flex-col gap-2">
       <SignedIn>
-        <section className="user-title-bar flex gap-4 items-end mt-2">
+        <section className="user-title-bar flex justify-center gap-4 items-end mt-2 ml-2">
           <div className="user-avatar">
-            {" "}
-            <Image
-              src={thisUser?.imageUrl}
-              alt={`${thisUser?.firstName} photo`}
-              width={200}
-              height={200}
-              className="user-avatar-image"
-            />
+            <Shiny>
+              <UserButton />
+            </Shiny>
           </div>
-          <h2>{thisUser?.firstName}, You are signed in</h2>
+          <h2>{thisUser?.username}, You are signed in</h2>
         </section>
 
         <section className="user-details flex flex-col gap-2 p-2 w-4/5 bg-purple-500 bg-opacity-50 rounded ">

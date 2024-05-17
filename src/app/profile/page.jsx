@@ -17,6 +17,7 @@ import PostsDisplay from "@/components/PostsDisplay";
 import UpdateUserProfileForm from "@/components/UpdateUserProfileForm";
 import MakeNewPost from "@/components/MakeNewPost";
 import Shiny from "@/components/Shiny";
+import { Suspense } from "react";
 
 export default async function ProfilePage() {
   // Get user details:
@@ -30,18 +31,20 @@ export default async function ProfilePage() {
 
   // Main jsx return:
   return (
-    <div className="user-profile-page flex flex-col gap-2">
+    <div className="user-profile-page flex flex-col gap-2 mt-16">
       <SignedIn>
         <section className="user-title-bar flex justify-center gap-4 items-end mt-2 ml-2">
           <div className="user-avatar">
             <Shiny>
-              <UserButton />
+              <Suspense fallback={<p>Avatar</p>}>
+                <UserButton />
+              </Suspense>
             </Shiny>
           </div>
           <h2>{thisUser?.username}, You are signed in</h2>
         </section>
 
-        <section className="user-details flex flex-col gap-2 p-2 w-4/5 bg-purple-500 bg-opacity-50 rounded ">
+        <section className="user-details flex flex-col gap-2 p-2 w-3/5 bg-purple-500 bg-opacity-50 rounded ">
           <div className="user-name flex gap-4 justify-end">
             <p className="user-details-text w-3/12 text-right ">Display Name</p>
             <p className="w-9/12">{thisUserOnDatabase?.username}</p>
@@ -65,10 +68,12 @@ export default async function ProfilePage() {
         <PostsDisplay userId={userId} />
       </SignedIn>
       <SignedOut>
-        <h3>You are not signed in. For shame!</h3>
-        <SignInButton />
-
-        <p>Sign in or up buttons here</p>
+        <div className="user-profile-page flex flex-col gap-2 mt-16 h-screen">
+          <h3>You are not signed in. For shame!</h3>
+          <Shiny>
+            <SignInButton className="fancy-link p-1" />
+          </Shiny>
+        </div>
       </SignedOut>
     </div>
   );

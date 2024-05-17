@@ -11,6 +11,7 @@ import NavBar from "@/components/NavBar";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "./header.css";
+import "@radix-ui/themes/styles.css";
 import { revalidatePath } from "next/cache";
 
 const inter = Inter({ subsets: ["latin"] });

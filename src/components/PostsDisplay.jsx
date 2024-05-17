@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import Image from "next/image";
 import Link from "next/link";
+import RadixAvatar from "./RadixAvatar";
 
 export default async function PostsDisplay(params) {
   console.log("PostDisplay.jsx: Params are ", params);
@@ -66,12 +67,13 @@ export default async function PostsDisplay(params) {
             key={post.id + post.username}
           >
             <div className="post-image">
-              <Image
+              {/* <Image
                 src={post.imageurl ? post.imageurl : "/defaultImage.webp"}
                 alt={post.title}
                 width={100}
                 height={100}
-              />
+              /> */}
+              <RadixAvatar src={post.imageurl} alt={post.username} />
             </div>
             <div className="flex flex-col">
               <Link

@@ -7,6 +7,7 @@ export default function Home() {
     <>
       <div className="top-bar flex flex-col">
         <h1>The Void</h1>
+
         <p className="ml-3">
           When we put words to our fears and feelings, they lose their power
           over us.

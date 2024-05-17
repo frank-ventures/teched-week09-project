@@ -57,6 +57,7 @@ I call it, **The Void**, because when we post online in places like this, it's k
 ### Features!
 
 -
+- Radix Avatar component
 
 ### What went well
 
@@ -80,8 +81,8 @@ I feel like I have got a good grasp on making my apps/websites modular which hel
 
 ### Sticky points and Difficulties
 
-**One**
-
+**New User making their first post get DENIED**
+talk about alexs bug and then fixing it with a conditional in the image
 **Two**
 
 ### Future Additions
@@ -93,3 +94,5 @@ DrawSQL - [My DrawSQL]()
 hamburger help https://jacobhocker.medium.com/creating-an-animated-hamburger-menu-in-nextjs-tailwind-css-9e332d428811
 
 Box Shadow help - [CSS Inner Box Shadow](https://devdevout.com/css/css-inner-shadow)
+
+LDRS - Loading Spinners Library _(I figured out you need to make the component "use client")_ - [LDRS Library](https://uiball.com/ldrs/)

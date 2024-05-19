@@ -23,12 +23,14 @@ export default function Home() {
           over us.
         </p>
       </div>
+      {/* Only signed in users should be able to make posts: */}
       <SignedIn>
         <p className="ml-3">
           Cast your words into the void? We&apos;ll listen.
         </p>
         <MakeNewPost />
       </SignedIn>
+      {/* We always want any users to see the posts on our site: */}
       <PostsDisplay />
     </div>
   );

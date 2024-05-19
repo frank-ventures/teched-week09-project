@@ -2,7 +2,9 @@ import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import SubmitFormButton from "./SubmitFormButton";
 
+// This is the form seen on the logged-in users profile page, to update their info on our database:
 export default function UpdateUserProfileForm({ userId, thisUserOnDatabase }) {
+  // The function:
   async function updateUserProfile(formData) {
     "use server";
 
@@ -20,6 +22,7 @@ export default function UpdateUserProfileForm({ userId, thisUserOnDatabase }) {
     revalidatePath("/");
   }
 
+  // The component display:
   return (
     <>
       <form

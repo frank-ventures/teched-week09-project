@@ -43,7 +43,7 @@ header nav {
   gap: 1.5em;
 }
 
-/* The div which contains the users avatar, and their Clerk button */
+/* The div which contains the users avatar which is their Clerk button, and also the fancy link to their profile page on our site: */
 .user-signed-in {
   display: flex;
   flex-direction: column;
@@ -67,7 +67,6 @@ header nav {
 /* --- --- --- --- --- --- --- ---  */
 /* Our fancy links have the animation underline thing */
 /* --- --- --- --- --- --- --- ---  */
-
 .fancy-link {
   position: relative;
 }
@@ -110,8 +109,7 @@ header nav {
   background-color: rgb(var(--hover-link));
 }
 
-/* This is the Next.js applied class to indicate to the user which page they're on  */
-
+/* This is the Next.js applied class to indicate to the user which page they're on. See NavBar.jsx <Link>s: */
 .active-link {
   border-bottom: rgb(255, 255, 255);
 }

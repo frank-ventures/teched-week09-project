@@ -1,15 +1,7 @@
 // Functionality imports
 import { auth, currentUser } from "@clerk/nextjs/server";
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-  UserProfile
-} from "@clerk/nextjs";
-import Image from "next/image";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { db } from "@/lib/db";
-
 // Style
 import "./profile.css";
 // Components
@@ -17,12 +9,12 @@ import PostsDisplay from "@/components/PostsDisplay";
 import UpdateUserProfileForm from "@/components/UpdateUserProfileForm";
 import MakeNewPost from "@/components/MakeNewPost";
 import Shiny from "@/components/Shiny";
-import { Suspense } from "react";
+import Pulse from "@/components/Pulse";
 
+// This page lets the user see and edit their own profile page:
 export default async function ProfilePage() {
   // Get user details:
   const { userId } = auth();
-  const thisUser = await currentUser();
   // From our own database:
   const databasereturn = await db.query(
     `SELECT * FROM wknine_profiles WHERE clerk_id = '${userId}'`
@@ -36,9 +28,9 @@ export default async function ProfilePage() {
         <section className="user-title-bar flex justify-center gap-4 items-end mt-2 ml-2">
           <div className="user-avatar">
             <Shiny>
-              <Suspense fallback={<p>Avatar</p>}>
+              <Pulse>
                 <UserButton />
-              </Suspense>
+              </Pulse>
             </Shiny>
           </div>
           <h2>{thisUserOnDatabase?.username}, You are signed in</h2>
@@ -57,7 +49,6 @@ export default async function ProfilePage() {
         </section>
 
         <h3>Update Your Profile</h3>
-        {/* <UserProfile /> */}
         <UpdateUserProfileForm
           userId={userId}
           thisUserOnDatabase={thisUserOnDatabase}

@@ -4,16 +4,16 @@ import Image from "next/image";
 import "./otherUser.css";
 import { notFound } from "next/navigation";
 
-// This page lets the user see and edit their own profile page.
+// This page lets the logged-in user see other users profile page:
 export default async function UserProfileDisplay({ params }) {
-  console.log("[id] page params: ", params);
-
+  // Lets go get that users details!:
   const databasereturn = await db.query(
     `SELECT * FROM wknine_profiles WHERE id = '${params.id}'`
   );
+  // Tidying up the return:
   const thisUser = databasereturn.rows[0];
-  console.log("ProfileDisplay Page: db results - ", thisUser);
 
+  // If there is a user with that ID in our database, show them. If not, then show the 'not found' page:
   return (
     <>
       {thisUser ? (

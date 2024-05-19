@@ -13,8 +13,8 @@ export default function NavBar() {
     console.log(isOpen);
   };
 
+  // For highlighting which link the USer is on:
   const pathname = usePathname();
-
   const isSubRoute = (route) => pathname.startsWith(route);
 
   return (

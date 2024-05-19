@@ -3,9 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import RadixAvatar from "./RadixAvatar";
 
+// Multi-purpose component, used on the main Home page and on individual profile pages:
 export default async function PostsDisplay(params) {
-  console.log("PostDisplay.jsx: Params are ", params);
-
   let databasereturn;
 
   // Query the database so that we can match a users profile, then get their ID.
@@ -31,7 +30,7 @@ export default async function PostsDisplay(params) {
   // Probably naughty
   let postsResult;
 
-  // Lets us show only the users posts, on their profile page:
+  // Lets us show only the users posts, for use on their profile page:
   if (thisUserOnDatabase) {
     postsResult = await db.query(`
     SELECT
@@ -67,12 +66,6 @@ export default async function PostsDisplay(params) {
             key={post.id + post.username}
           >
             <div className="post-image">
-              {/* <Image
-                src={post.imageurl ? post.imageurl : "/defaultImage.webp"}
-                alt={post.title}
-                width={100}
-                height={100}
-              /> */}
               <RadixAvatar
                 src={post.imageurl ? post.imageurl : "/defaultImage.webp"}
                 alt={post.username}

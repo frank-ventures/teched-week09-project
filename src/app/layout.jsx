@@ -17,7 +17,7 @@ import { revalidatePath } from "next/cache";
 const inter = Inter({ subsets: ["latin"] });
 
 // --- --- --- ---
-// Metadata
+// Main metadata:
 export const metadata = {
   title: "The Void",
   description: "Not really a social network. Made by Frank."
@@ -33,7 +33,7 @@ export default async function RootLayout({ children }) {
   // I'm going to check if the userId is not null:
   if (userId) {
     const thisUser = await currentUser();
-
+    // This next statement allows us to update the users display image, should they change it in Clerk anywhere on our site:
     if (thisUser) {
       if (thisUser.imageUrl === null) {
         await db.query(
@@ -48,11 +48,6 @@ export default async function RootLayout({ children }) {
 
         revalidatePath("/");
       } else {
-        console.log(
-          "layout.jsx: This users imageUrl  line 54 - ",
-          thisUser.imageUrl
-        );
-
         await db.query(
           `
           UPDATE wknine_profiles
@@ -63,8 +58,8 @@ export default async function RootLayout({ children }) {
         revalidatePath("/");
       }
     }
-    // Do they exist on my database or are they new?:
 
+    // Do they exist on my database or are they new?:
     profiles = await db.query(
       `SELECT * FROM wknine_profiles WHERE clerk_id = '${userId}'`
     );
@@ -84,9 +79,8 @@ export default async function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          {/* <header> */}
+          {/* NavBar acts as our 'header', hidden behind a 'hamburger' button: */}
           <NavBar />
-          {/* </header> */}
           <main>{children}</main>
         </body>
       </html>

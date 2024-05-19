@@ -14,6 +14,7 @@ const RadixAvatar = ({ src, alt }) => (
         src={src}
         alt={`Avatar of ${alt}`}
       />
+      {/* I don't think this is working...yet! */}
       <Avatar.Fallback className="AvatarFallback" delayMs={1000}>
         <l-square
           size="35"
